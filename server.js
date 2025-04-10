@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors());
@@ -19,7 +19,8 @@ mongoose.connect('mongodb+srv://SYSDBA:1234@villeda.zofqxga.mongodb.net/tareasdb
 
 // Modelo de tarea
 const tareaSchema = new mongoose.Schema({
-  texto: String,
+  texto: String
+ 
 });
 
 const Tarea = mongoose.model('Tarea', tareaSchema);
